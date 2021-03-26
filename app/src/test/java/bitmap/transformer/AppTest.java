@@ -4,11 +4,18 @@
 package bitmap.transformer;
 
 import org.junit.Test;
+
+import java.io.IOException;
+
 import static org.junit.Assert.*;
 
 public class AppTest {
-    @Test public void testAppHasAGreeting() {
-        App classUnderTest = new App();
-        assertNotNull("app should have a greeting", classUnderTest.getGreeting());
+
+    @Test
+    public void testProofOfLife() throws IOException {
+        String expected = "This is your File location app/src/main/resources/img.bmp, this is your destination of new file app/src/main/img.bmp, this is that transformation you want white";
+        BitMap testFile = new BitMap("app/src/main/resources/img.bmp", "app/src/main/img.bmp", "white");
+        String actual = testFile.printInfo();
+        assertEquals(expected, actual);
     }
 }

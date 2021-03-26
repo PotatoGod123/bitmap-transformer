@@ -3,17 +3,38 @@
  */
 package bitmap.transformer;
 
-public class App {
-    public String getGreeting() {
-        return "Hello World!";
-    }
 
-    public static void main(String[] args) {
-        System.out.println(new App().getGreeting());
+import java.io.IOException;
+import java.util.Locale;
+
+public class App {
+    public static void main(String[] args) throws IOException {
 
         BitMap newFile= new BitMap(args[0],args[1],args[2]);
+        System.out.println(args[2].toUpperCase());
 
-        newFile.printInfo();
-        newFile.testFile();
+//        newFile.printInfo();
+//        newFile.testFile();
+//        newFile.paintWhite();
+//        newFile.paintBlack();
+//        newFile.paintBlackWhite();
+
+        if( args[2].equalsIgnoreCase("WHITE")){
+            newFile.paintWhite();
+            System.out.println("working");
+        }
+        if( args[2].equalsIgnoreCase("BLACK")){
+            newFile.paintBlack();
+            System.out.println("working");
+        }
+        if( args[2].equalsIgnoreCase("BLACKWHITE")){
+            newFile.paintBlackWhite();
+            System.out.println("working");
+        }
+        else {
+            System.out.println("wrong transformation command");
+        }
     }
+
+
 }
